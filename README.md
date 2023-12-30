@@ -52,3 +52,7 @@
     11. Responsive Design Implementation: Ensured responsiveness by using dynamic values, allowing widgets to adapt to various screen sizes seamlessly.
 
 ## App Interface and Flow:
+ - https://excalidraw.com/#json=-3BHApdWHStb8f9zn558_,7r6LKpNzboS_407f7a4TsA
+
+ - ![ok](https://github.com/rishi058/Radio_Payer_Global_Groove/assets/97884033/ced76309-c2a7-43a6-9039-46af249da761)
+
