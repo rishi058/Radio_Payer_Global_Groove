@@ -4,6 +4,7 @@ import 'package:global_groove/screens/all_countries/components/radio_tile.dart';
 import 'package:global_groove/sizer/sizer.dart';
 import '../../color_scheme/color_scheme.dart';
 import '../../controller/audio_controller/audio_controllers.dart';
+import '../../global_widgets/custom_internet_image.dart';
 import '../../global_widgets/mini_player.dart';
 import '../../models/radio_model.dart';
 import '../../services/radio_api/dio_base.dart';
@@ -92,13 +93,10 @@ class _CountryStationsState extends State<CountryStations>{
                           boxShape: NeumorphicBoxShape.circle()
                       ),
                       child: Container(
-                        height: 15.h,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          image: DecorationImage(
-                              image: NetworkImage(widget.country.countryFlag),
-                              onError:(error, stackTrace) => const AssetImage('assets/not-load.jpg'),
-                          )
+                        width: 10.w,
+                        decoration: const BoxDecoration(shape: BoxShape.circle),
+                        child: ClipOval(
+                          child: internetImage(widget.country.countryFlag, 15.h, 15.h),
                         ),
                       ),
                     ),
@@ -114,7 +112,7 @@ class _CountryStationsState extends State<CountryStations>{
                 physics: const NeverScrollableScrollPhysics(),
                 itemCount: data.length + 1,
                 itemBuilder: (BuildContext context, int i) {
-                  if(i<data.length){return radioTile(data[i]);}
+                  if(i<data.length){return radioTile(context, data, i);}
                   else{
                     return Padding(
                       padding: EdgeInsets.symmetric(horizontal: 46.w, vertical: 5.h),

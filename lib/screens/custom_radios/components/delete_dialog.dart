@@ -12,7 +12,7 @@ Future<bool> showDeleteDialog(BuildContext ctx) {
   showDialog(
     context: ctx,
     builder: (ctx) => AlertDialog(
-      backgroundColor: LocalStorage().isDarkMode() ? Colors.black45 : CustomLightThemeColor.backgroundColor,
+      backgroundColor: LocalStorage().isDarkMode() ? Colors.black : CustomLightThemeColor.backgroundColor,
       title: const Text('Delete Channel ?'),
       content: const Text('Do you want to permanently delete this custom channel ?'),
       actions: <Widget>[

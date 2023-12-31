@@ -15,7 +15,7 @@ Future<void> showAddDialog(BuildContext context, Function refresh) async {
     context: context,
     builder: (BuildContext context) {
       return AlertDialog(
-        backgroundColor: LocalStorage().isDarkMode() ? Colors.black45 : CustomLightThemeColor.backgroundColor,
+        backgroundColor: LocalStorage().isDarkMode() ? Colors.black : CustomLightThemeColor.backgroundColor,
         title: Text('Add a custom Channel', style: TextStyle(fontSize: 12.sp),),
         content: SizedBox(
           width: 80.w,

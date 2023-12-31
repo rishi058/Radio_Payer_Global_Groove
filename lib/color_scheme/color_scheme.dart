@@ -2,7 +2,7 @@ import 'package:flutter_neumorphic_plus/flutter_neumorphic.dart';
 
 class CustomLightThemeColor{
   static Color backgroundColor = const Color.fromRGBO(226, 236, 240, 1);
-  static Color shadowDarkColor = Colors.black;
+  static Color shadowDarkColor = const Color(0x8A000000);
   static Color shadowLightColor = Colors.white;
   static Color primaryTextColor = Colors.black;
   static Color secondaryTextColor = Colors.black54;

@@ -57,7 +57,6 @@ class Start extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var darkOn = ThemeData(brightness: Brightness.dark);
     return Sizer(
         context: context,
         builder: (context) {
@@ -68,15 +67,17 @@ class Start extends StatelessWidget {
             theme: NeumorphicThemeData(
               textTheme: GoogleFonts.montserratTextTheme(),
               baseColor: CustomLightThemeColor.backgroundColor,
+              shadowDarkColor: CustomLightThemeColor.shadowDarkColor,
+              shadowLightColor: CustomLightThemeColor.shadowLightColor,
               lightSource: LightSource.topLeft,
               depth: 10,
             ),
             darkTheme: NeumorphicThemeData(
-              textTheme: GoogleFonts.montserratTextTheme(darkOn.textTheme),
+              textTheme: GoogleFonts.montserratTextTheme(ThemeData(brightness: Brightness.dark).textTheme),
               baseColor: CustomDarkThemeColor.backgroundColor,
               shadowDarkColor: CustomDarkThemeColor.shadowDarkColor,
-              lightSource: LightSource.topLeft,
               shadowLightColor: CustomDarkThemeColor.shadowLightColor,
+              lightSource: LightSource.topLeft,
               depth: 10,
             ),
             home: const SplashScreen(),

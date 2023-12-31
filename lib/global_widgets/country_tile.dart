@@ -4,6 +4,7 @@ import 'package:global_groove/screens/all_countries/country_stations.dart';
 import 'package:global_groove/sizer/sizer.dart';
 
 import '../color_scheme/color_scheme.dart';
+import 'custom_internet_image.dart';
 
 Widget countryTile(CountryModel country, BuildContext context) {
   return Padding(
@@ -40,13 +41,9 @@ Widget countryTile(CountryModel country, BuildContext context) {
                     ),
                     child: Container(
                       width: 10.w,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        image: DecorationImage(
-                          image: NetworkImage(country.countryFlag),
-                          fit: BoxFit.fitHeight,
-                          onError:(error, stackTrace) => const AssetImage('assets/not-load.jpg'),
-                        ),
+                      decoration: const BoxDecoration(shape: BoxShape.circle),
+                      child: ClipOval(
+                        child: internetImage(country.countryFlag, 10.w, 10.w),
                       ),
                     ),
                   ),

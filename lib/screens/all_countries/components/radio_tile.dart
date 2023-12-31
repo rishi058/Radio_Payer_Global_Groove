@@ -5,9 +5,11 @@ import 'package:global_groove/models/radio_model.dart';
 import 'package:global_groove/sizer/sizer.dart';
 
 import '../../../color_scheme/color_scheme.dart';
+import '../../../global_widgets/custom_internet_image.dart';
+import '../../audio_player_screen/audio_player_screen.dart';
 
-Widget radioTile(RadioChannel channel) {
-
+Widget radioTile(BuildContext context, List<RadioChannel> channelList, int index) {
+  RadioChannel channel = channelList[index];
   String imageUrl = channel.radioImage;
 
   if(imageUrl.isEmpty){
@@ -17,7 +19,14 @@ Widget radioTile(RadioChannel channel) {
   return Padding(
     padding: EdgeInsets.symmetric(vertical: 10.sp, horizontal: 10.sp),
     child: NeumorphicButton(
-      onPressed: (){},
+      onPressed: (){
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) =>
+                  AudioPlayerScreen(channels: channelList, index: index)),
+        );
+      },
       style: NeumorphicStyle(
         depth: 10,
         intensity: 1,
@@ -39,12 +48,9 @@ Widget radioTile(RadioChannel channel) {
                   ),
                   child: Container(
                     width: 10.w,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      image: DecorationImage(
-                          image: NetworkImage(imageUrl),
-                          fit: BoxFit.fitHeight
-                      ),
+                    decoration: const BoxDecoration(shape: BoxShape.circle),
+                    child: ClipOval(
+                      child: internetImage(imageUrl, 10.w, 10.w),
                     ),
                   ),
                 ),

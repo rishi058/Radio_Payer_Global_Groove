@@ -12,7 +12,7 @@ Future<bool> showLogoutBox(BuildContext ctx) {
   showDialog(
     context: ctx,
     builder: (ctx) => AlertDialog(
-      backgroundColor: LocalStorage().isDarkMode() ? const Color(0xFF1A1919) : CustomLightThemeColor.backgroundColor,
+      backgroundColor: LocalStorage().isDarkMode() ? Colors.black : CustomLightThemeColor.backgroundColor,
       title: const Text('Are you sure?'),
       content: const Text('Do you want to log out of this device ?'),
       actions: <Widget>[

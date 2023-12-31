@@ -6,6 +6,7 @@ import 'package:global_groove/services/firebase_api/firebase_db/custom_channels.
 import 'package:global_groove/services/firebase_api/firebase_db/firebase_database.dart';
 import 'package:global_groove/sizer/sizer.dart';
 
+import '../../../global_widgets/custom_internet_image.dart';
 import '../../../services/firebase_api/firebase_db/small_data_instances.dart';
 import 'delete_dialog.dart';
 
@@ -48,12 +49,9 @@ Widget customChannelTile(List<RadioChannel> channelList, int index, BuildContext
                     ),
                     child: Container(
                       width: 10.w,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        image: DecorationImage(
-                          image: NetworkImage(channel.radioImage),
-                          fit: BoxFit.fitHeight,
-                        ),
+                      decoration: const BoxDecoration(shape: BoxShape.circle),
+                      child: ClipOval(
+                        child: internetImage(channel.radioImage, 10.w, 10.w),
                       ),
                     ),
                   ),

@@ -37,28 +37,26 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'Global Groove',
-                style: TextStyle(
-                  fontSize: 12.sp,
-                  letterSpacing: 4,
-                  fontWeight: FontWeight.w800,
-                  color: const Color.fromRGBO(134, 132, 209, 1),
-                ),
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Global Groove',
+              style: TextStyle(
+                fontSize: 12.sp,
+                letterSpacing: 4,
+                fontWeight: FontWeight.w800,
+                color: const Color.fromRGBO(134, 132, 209, 1),
               ),
-              SizedBox(
-                  width: 50.w,
-                  child: Lottie.asset('assets/loading.json')),
-            ],
-          ),
+            ),
+            SizedBox(
+                width: 50.w,
+                child: Lottie.asset('assets/loading.json')),
+          ],
         ),
       ),
     );

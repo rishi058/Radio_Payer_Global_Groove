@@ -6,6 +6,7 @@ import 'package:global_groove/sizer/sizer.dart';
 import 'package:lottie/lottie.dart';
 import '../color_scheme/color_scheme.dart';
 import '../screens/audio_player_screen/audio_player_screen.dart';
+import 'custom_internet_image.dart';
 
 Widget miniPlayer(BuildContext context, String radioId) {
   String imgUrl = "";
@@ -54,14 +55,9 @@ Widget miniPlayer(BuildContext context, String radioId) {
                             boxShape: NeumorphicBoxShape.circle()),
                         child: Container(
                           width: 10.w,
-                          height: 10.w,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            image: DecorationImage(
-                              image: NetworkImage(imgUrl),
-                              fit: BoxFit.fitHeight,
-                              onError: (error, stackTrace) => {},
-                            ),
+                          decoration: const BoxDecoration(shape: BoxShape.circle),
+                          child: ClipOval(
+                            child: internetImage(imgUrl, 10.w, 10.w),
                           ),
                         ),
                       ),

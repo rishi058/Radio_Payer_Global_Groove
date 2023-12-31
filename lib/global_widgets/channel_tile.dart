@@ -1,9 +1,21 @@
+import 'dart:developer';
 import 'dart:math';
+
+import 'package:dio/dio.dart';
 import 'package:flutter_neumorphic_plus/flutter_neumorphic.dart';
 import 'package:global_groove/color_scheme/color_scheme.dart';
+import 'package:global_groove/global_widgets/custom_internet_image.dart';
 import 'package:global_groove/models/radio_model.dart';
 import 'package:global_groove/screens/audio_player_screen/audio_player_screen.dart';
 import 'package:global_groove/sizer/sizer.dart';
+
+Future<String> checkRadioImage(String imageUrl) async {
+  var response = await Dio().get(imageUrl);
+  if (response.statusCode == 200) {
+    return imageUrl;
+  }
+  return 'https://img.freepik.com/premium-vector/radio_7104-4.jpg';
+}
 
 Widget channelTile(
     List<RadioChannel> channelList, int index, BuildContext context) {
@@ -47,14 +59,9 @@ Widget channelTile(
                         boxShape: NeumorphicBoxShape.circle()),
                     child: Container(
                       width: 10.w,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        image: DecorationImage(
-                          image: NetworkImage(imageUrl),
-                          fit: BoxFit.fitHeight,
-                          onError: (error, stackTrace) =>
-                              const AssetImage('assets/not-load.jpg'),
-                        ),
+                      decoration: const BoxDecoration(shape: BoxShape.circle),
+                      child: ClipOval(
+                        child: internetImage(imageUrl, 10.w, 10.w),
                       ),
                     ),
                   ),

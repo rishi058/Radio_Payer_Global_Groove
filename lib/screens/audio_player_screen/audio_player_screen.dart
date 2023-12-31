@@ -103,6 +103,10 @@ class _AudioPlayerScreenState extends State<AudioPlayerScreen> {
           NeumorphicButton(
             onPressed: () {
                 if(LocalStorage().isLoggedIn()){
+                  if(myCustomChannelList.contains(data[i])){
+                    Get.snackbar('Custom channels cannot be added to favourite list.', '');
+                    return;
+                  }
                   if(myFavouriteChannelList.contains(data[i].radioId)){
                       FirebaseDB().removeFromFavourites(data[i].radioId).then((val){
                         if(val){
@@ -163,7 +167,7 @@ class _AudioPlayerScreenState extends State<AudioPlayerScreen> {
                         image: DecorationImage(
                             image: NetworkImage(imageUrl),
                             fit: BoxFit.fitHeight,
-                            onError:(error, stackTrace) => const AssetImage('assets/not-load.jpg'),
+                            onError:(error, stackTrace) => {},
                         )
                     ),
                   ),

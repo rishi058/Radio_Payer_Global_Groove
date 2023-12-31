@@ -8,7 +8,7 @@ import 'package:global_groove/models/radio_model.dart';
 import 'firebase_database.dart';
 
 extension CustomChannels on FirebaseDB {
-  static String radioImgUrl = "https://w7.pngwing.com/pngs/122/303/png-transparent-internet-radio-fm-broadcasting-south-korea-radio-station-radio-electronics-fm-broadcasting-radio-station-thumbnail.png";
+  static String radioImgUrl = 'https://img.freepik.com/premium-vector/radio_7104-4.jpg';
 
   static String countryFlag =
       "https://images.squarespace-cdn.com/content/v1/5fa6b76b045ef433ae7b252e/1604765875569-MUAEJNXG2NL6E4VEORZ6/Flag_20x30.jpg?format=750w";
