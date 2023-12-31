@@ -56,3 +56,8 @@
 
  - ![ok](https://github.com/rishi058/Radio_Payer_Global_Groove/assets/97884033/91fe03ae-7002-4c12-859c-32333bf56efb)
 
+## To Do:
+
+    1. Include feature of adding custom channels to the API itself.
+
+    2. Add a feature to record audio of radio.
