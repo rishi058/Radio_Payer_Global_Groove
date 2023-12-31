@@ -7,8 +7,8 @@ extension RadioApiExtension on RadioApi{
     List<RadioChannel> data = [];
 
     var params = {
-      'offset' : page,
-      'limit' : '25',
+      'offset' : page*50,
+      'limit' : '50',
       'hidebroken' : 'true',
     };
 

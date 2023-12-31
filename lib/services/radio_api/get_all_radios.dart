@@ -6,7 +6,7 @@ extension RadioApiExtension on RadioApi{
   Future<List<RadioChannel>> getAllRadios(int page) async {
     List<RadioChannel> data = [];
     var params = {
-      'offset' : page,
+      'offset' : page*100,
       'limit' : '100',
       'hidebroken' : 'true',
     };

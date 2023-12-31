@@ -58,7 +58,10 @@ class _CustomRadiosScreenState extends State<CustomRadiosScreen> {
             NeumorphicButton(
               onPressed: () {
                 if(LocalStorage().isLoggedIn()){
-                  showAddDialog(context, refresh);
+                  showDialog(context: context, builder: (BuildContext context){
+                    return AddChannelDialog(refresh: refresh);
+                  });
+                  // AddChannelDialog(refresh: refresh);
                 }
                 else{
                   Get.snackbar('Login to add a custom channel', '');

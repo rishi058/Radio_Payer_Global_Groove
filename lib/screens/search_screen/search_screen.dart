@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter_neumorphic_plus/flutter_neumorphic.dart';
 import 'package:get/get.dart';
 import 'package:global_groove/sizer/sizer.dart';
@@ -22,6 +24,7 @@ class _SearchScreenState extends State<SearchScreen> {
   final List<String> chipData = ['Channel', 'Country', 'State', 'Language', 'Genre'];
   List<RadioChannel> data = [];
   int selectedIndex = 0;
+  bool isLoading = false;
 
   late RadioIdController ctrl;
 
@@ -32,38 +35,48 @@ class _SearchScreenState extends State<SearchScreen> {
   }
 
   void loadData(String keyword) async {
-    if(keyword.isEmpty){
+    if (keyword.isEmpty) {
       setState(() {});
       return;
     }
 
-    if(selectedIndex==0){
-      await RadioApi().getRadiosByName(keyword).then((value) {
-        data = value;
+    try {
+      setState(() {
+        isLoading = true;
+      });
+
+      switch (selectedIndex) {
+        case 0:
+          data = await RadioApi().getRadiosByName(keyword);
+          break;
+        case 1:
+          data = await RadioApi().getRadiosByCountry(keyword);
+          break;
+        case 2:
+          data = await RadioApi().getRadiosByState(keyword);
+          break;
+        case 3:
+          data = await RadioApi().getRadiosByLanguage(keyword);
+          break;
+        default:
+          data = await RadioApi().getRadiosByGenre(keyword);
+          break;
+      }
+    } catch (error) {
+      log(error.toString());
+    } finally {
+      setState(() {
+        isLoading = false;
       });
     }
-    else if(selectedIndex==1){
-      await RadioApi().getRadiosByCountry(keyword).then((value) {
-        data = value;
-      });
-    }
-    else if(selectedIndex==2){
-      await RadioApi().getRadiosByState(keyword).then((value) {
-        data = value;
-      });
-    }
-    else if(selectedIndex==3){
-      await RadioApi().getRadiosByLanguage(keyword).then((value) {
-        data = value;
-      });
-    }
-    else{
-      await RadioApi().getRadiosByGenre(keyword).then((value) {
-        data = value;
-      });
-    }
-    setState(() {});
   }
+
+  @override
+  void dispose() {
+    searchKeyword.dispose();
+    super.dispose();
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -144,7 +157,9 @@ class _SearchScreenState extends State<SearchScreen> {
                     },
                   ),
                 ),
-                ListView.builder(
+
+                isLoading ? const Center(child: CircularProgressIndicator())
+                : ListView.builder(
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
                   itemCount: data.length,

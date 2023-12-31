@@ -21,7 +21,7 @@ class AllCountriesScreen extends StatefulWidget {
 
 class _AllCountriesScreenState extends State<AllCountriesScreen> {
 
-  int _initialPage = 1;
+  int _initialPage = 0;
   final ScrollController _scrollController = ScrollController();
 
   List<CountryModel> data = [];

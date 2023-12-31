@@ -21,11 +21,4 @@ class RadioApi{
   RadioApi(){
     dio.interceptors.add(RadioInterceptor());
   }
-
 }
-
-// Dio getDio() {
-//   Dio dio = Dio();
-//   dio.interceptors.add(RadioInterceptor());
-//   return dio;
-// }

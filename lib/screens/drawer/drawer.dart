@@ -74,7 +74,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 style: const NeumorphicStyle(depth: 10, intensity: 1),
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Text(name),
+                  child: Text(name, style: TextStyle(fontSize: 8.sp)),
                 ),
               ),
               SizedBox(height: 2.h),
@@ -97,7 +97,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Text(gmail),
+                      Text(gmail,  style: TextStyle(fontSize: 8.sp)),
                       SizedBox(width: 1.h),
                       ShaderMask(
                           blendMode: BlendMode.srcIn,

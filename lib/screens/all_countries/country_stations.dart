@@ -24,7 +24,7 @@ class CountryStations extends StatefulWidget {
 
 class _CountryStationsState extends State<CountryStations>{
   List<RadioChannel> data = [];
-  int _initialPage = 1;
+  int _initialPage = 0;
   final ScrollController _scrollController = ScrollController();
 
   void loadData(){
@@ -72,7 +72,7 @@ class _CountryStationsState extends State<CountryStations>{
                   child: const Center(child: Icon(Icons.arrow_back_ios_new))),
 
         ),
-        title: Text(widget.country.countryName, style: TextStyle(fontSize: 10.sp),),
+        title: Text(widget.country.countryName, overflow: TextOverflow.ellipsis),
         centerTitle: true,
       ),
       body: Scrollbar(

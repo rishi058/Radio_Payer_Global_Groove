@@ -24,10 +24,11 @@ class FavouriteRadios extends StatefulWidget {
 class _FavouriteRadiosState extends State<FavouriteRadios> {
   List<RadioChannel>? favourite;
 
-  Future<void> loadData() async {
+  loadData() async {
     await RadioApi().getFavouriteRadioList(myFavouriteChannelList).then((val) {
-      favourite = val;
-      setState(() {});
+      setState(() {
+        favourite = val;
+      });
     });
   }
 

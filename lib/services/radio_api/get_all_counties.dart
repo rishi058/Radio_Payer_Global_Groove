@@ -1,4 +1,5 @@
 import 'dart:developer';
+import 'dart:math';
 
 import 'package:global_groove/models/country_model.dart';
 import 'package:global_groove/services/radio_api/dio_base.dart';
@@ -8,7 +9,7 @@ extension RadioApiExtension on RadioApi{
   Future<List<CountryModel>> getAllCountries(int page) async {
     List<CountryModel> data = [];
     var params = {
-      'offset' : page,
+      'offset' : page*30,
       'limit' : '30',
       'hidebroken' : 'true',
     };
@@ -20,7 +21,7 @@ extension RadioApiExtension on RadioApi{
           .toList();
     }
     catch(e){
-      log(e.toString());
+      // log(e.toString());
     }
 
     return data;

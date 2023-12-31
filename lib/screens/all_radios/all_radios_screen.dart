@@ -21,7 +21,7 @@ class AllRadiosScreen extends StatefulWidget {
 
 class _AllRadiosScreenState extends State<AllRadiosScreen> {
 
-  int _initialPage = 1;
+  int _initialPage = 0;
   final ScrollController _scrollController = ScrollController();
 
   List<RadioChannel> data = [];
