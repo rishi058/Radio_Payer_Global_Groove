@@ -6,6 +6,7 @@ import 'package:global_groove/services/firebase_api/firebase_db/firebase_databas
 import 'package:global_groove/services/local_storage/get_storage_helper.dart';
 import 'package:global_groove/sizer/sizer.dart';
 import '../../color_scheme/color_scheme.dart';
+import '../../global_widgets/custom_internet_image.dart';
 import '../../models/radio_model.dart';
 import '../../services/firebase_api/firebase_db/small_data_instances.dart';
 import 'components/seek_bar.dart';
@@ -160,15 +161,11 @@ class _AudioPlayerScreenState extends State<AudioPlayerScreen> {
                       boxShape: NeumorphicBoxShape.circle()
                   ),
                   child: Container(
-                    height: 22.h,
+                    width: 22.h,
                     margin: EdgeInsets.all(5.sp),
-                    decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        image: DecorationImage(
-                            image: NetworkImage(imageUrl),
-                            fit: BoxFit.fitHeight,
-                            onError:(error, stackTrace) => {},
-                        )
+                    decoration: const BoxDecoration(shape: BoxShape.circle),
+                    child: ClipOval(
+                      child: internetImage(imageUrl, 22.h, 22.h),
                     ),
                   ),
                 ),

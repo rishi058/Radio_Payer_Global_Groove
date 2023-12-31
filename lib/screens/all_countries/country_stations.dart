@@ -93,7 +93,8 @@ class _CountryStationsState extends State<CountryStations>{
                           boxShape: NeumorphicBoxShape.circle()
                       ),
                       child: Container(
-                        width: 10.w,
+                        width: 15.h,
+                        margin: EdgeInsets.all(3.sp),
                         decoration: const BoxDecoration(shape: BoxShape.circle),
                         child: ClipOval(
                           child: internetImage(widget.country.countryFlag, 15.h, 15.h),
