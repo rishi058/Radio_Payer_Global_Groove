@@ -2,7 +2,6 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic_plus/flutter_neumorphic.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:global_groove/controller/audio_controller/audio_controllers.dart';
 import 'package:global_groove/global_widgets/channel_tile.dart';
 import 'package:global_groove/global_widgets/country_tile.dart';
@@ -60,7 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
   }
 
-  refresh() {}
+
 
   @override
   Widget build(BuildContext context) {

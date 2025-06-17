@@ -1,4 +1,4 @@
-part of sizer;
+part of 'sizer.dart';
 
 typedef ResponsiveBuild = Widget Function(
   BuildContext context,
@@ -6,7 +6,7 @@ typedef ResponsiveBuild = Widget Function(
 
 
 class Sizer extends StatefulWidget {
-  const Sizer({Key? key, required this.builder, required this.context}) : super(key: key);
+  const Sizer({super.key, required this.builder, required this.context});
 
   final ResponsiveBuild builder;
   final BuildContext context;

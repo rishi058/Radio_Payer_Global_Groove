@@ -23,10 +23,12 @@ class _QuotesScreenState extends State<QuotesScreen> {
   List<QuotesModel> data = [];
 
   void loadData() async {
+
     await QuotesApi().getRandomQuotes().then((value){
       data = value;
       setState(() {});
     });
+
   }
 
   late RadioIdController ctrl;

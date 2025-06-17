@@ -19,7 +19,7 @@ class CustomRadiosScreen extends StatefulWidget {
 
 class _CustomRadiosScreenState extends State<CustomRadiosScreen> {
 
-  refresh() {
+  void refresh() {
    setState(() {});
   }
 

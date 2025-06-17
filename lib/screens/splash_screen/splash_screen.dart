@@ -29,7 +29,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.dispose();
   }
 
-  startTimer(BuildContext ctx) {
+  void startTimer(BuildContext ctx) {
     _timer = Timer(const Duration(seconds: 2), () {
       Navigator.popAndPushNamed(ctx, 'home-screen');
     });

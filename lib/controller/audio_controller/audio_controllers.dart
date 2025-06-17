@@ -9,7 +9,7 @@ import 'dart:developer';
 class RadioIdController extends GetxController{
   RxString globalRadioId = "".obs ;
 
-  setValue(String id){
+  void setValue(String id){
     globalRadioId.value = id;
   }
 
@@ -67,7 +67,7 @@ class AudioController {    //
     return true;
   }
 
-  static stopAudio() {
+  static void stopAudio() {
     if (isPlaying) {
       audioPlayer.stop();
     }
